@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vivek M. — Cloud Solution Architect</title>
+<meta name="description" content="Multi-Cloud Solution Architect | Azure Solutions Architect Expert | TOGAF® Certified | Melbourne, Australia">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1D3A;
+    --navy2: #152a54;
+    --gold: #C9923A;
+    --gold2: #e8ac5a;
+    --cream: #F9F6EF;
+    --text: #1a1a2e;
+    --muted: #5a6070;
+    --border: rgba(0,0,0,0.09);
+    --white: #ffffff;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); font-size: 16px; line-height: 1.7; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--navy); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 58px; }
+  .nav-logo { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.15rem; letter-spacing: 0.03em; }
+  .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.88rem; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold2); }
+  .nav-cta { background: var(--gold); color: var(--white) !important; padding: 0.35rem 1rem; border-radius: 4px; font-weight: 500 !important; transition: background 0.2s !important; }
+  .nav-cta:hover { background: var(--gold2) !important; }
+  .admin-btn { font-size: 0.78rem; color: rgba(255,255,255,0.4); cursor: pointer; background: none; border: 1px solid rgba(255,255,255,0.15); padding: 0.25rem 0.65rem; border-radius: 4px; margin-left: 0.5rem; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
+  .admin-btn:hover { color: var(--gold); border-color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 5rem 0; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+  .section-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; line-height: 1.2; color: var(--navy); margin-bottom: 1rem; }
+  .section-sub { color: var(--muted); max-width: 600px; margin-bottom: 3rem; }
+
+  /* HERO */
+  #hero { background: var(--navy); padding: 7rem 0 6rem; }
+  .hero-inner { display: grid; grid-template-columns: 1fr 340px; gap: 4rem; align-items: center; max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+  .hero-tag { display: inline-block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); padding: 0.3rem 0.85rem; border-radius: 100px; margin-bottom: 1.5rem; }
+  .hero-name { font-family: 'Playfair Display', serif; font-size: 3.2rem; color: #fff; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero-title { font-size: 1.05rem; color: rgba(255,255,255,0.55); margin-bottom: 1.25rem; font-weight: 300; }
+  .hero-line { font-size: 1.2rem; color: rgba(255,255,255,0.9); font-weight: 300; line-height: 1.5; max-width: 480px; margin-bottom: 2rem; }
+  .hero-line em { color: var(--gold2); font-style: normal; }
+  .btn-primary { display: inline-block; background: var(--gold); color: #fff; text-decoration: none; padding: 0.75rem 1.75rem; border-radius: 4px; font-weight: 500; font-size: 0.95rem; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+  .btn-ghost { display: inline-block; color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.75rem 1.5rem; border: 1px solid rgba(255,255,255,0.25); border-radius: 4px; font-size: 0.95rem; margin-left: 0.75rem; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-photo { position: relative; }
+  .photo-frame { width: 280px; height: 320px; background: var(--navy2); border: 2px solid rgba(201,146,58,0.3); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; margin-left: auto; overflow: hidden; position: relative; }
+  .photo-frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; display: none; }
+  .photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; color: rgba(255,255,255,0.4); text-align: center; padding: 1.5rem; }
+  .photo-initials { width: 80px; height: 80px; border-radius: 50%; background: rgba(201,146,58,0.15); border: 2px solid rgba(201,146,58,0.3); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.75rem; color: var(--gold); }
+  .photo-hint { font-size: 0.8rem; line-height: 1.4; }
+  .photo-upload-label { font-size: 0.75rem; color: var(--gold); cursor: pointer; border: 1px dashed rgba(201,146,58,0.4); padding: 0.3rem 0.75rem; border-radius: 4px; transition: all 0.2s; }
+  .photo-upload-label:hover { background: rgba(201,146,58,0.1); }
+  .hero-certs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+  .cert-badge { font-size: 0.75rem; color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); padding: 0.3rem 0.75rem; border-radius: 100px; }
+
+  /* VALUE PROP */
+  #value { background: var(--white); }
+  .vp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .vp-card { padding: 2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--cream); }
+  .vp-icon { width: 44px; height: 44px; border-radius: 8px; background: var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .vp-icon svg { width: 22px; height: 22px; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .vp-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .vp-text { font-size: 0.92rem; color: var(--muted); line-height: 1.65; }
+  .industries { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .industry-tag { font-size: 0.82rem; font-weight: 500; padding: 0.35rem 0.9rem; border-radius: 100px; background: var(--navy); color: rgba(255,255,255,0.8); }
+
+  /* SERVICES */
+  #services { background: var(--cream); }
+  .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+  .service-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 2rem; transition: box-shadow 0.2s; }
+  .service-card:hover { box-shadow: 0 4px 24px rgba(0,0,0,0.07); }
+  .svc-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: rgba(201,146,58,0.2); line-height: 1; margin-bottom: 0.75rem; }
+  .svc-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .svc-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.65; margin-bottom: 1rem; }
+  .svc-outcome { font-size: 0.82rem; font-weight: 500; color: var(--gold); }
+
+  /* CASE STUDIES */
+  #work { background: var(--white); }
+  .cases-grid { display: flex; flex-direction: column; gap: 2rem; }
+  .case-card { border: 1px solid var(--border); border-radius: 10px; padding: 2rem; background: var(--cream); display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; align-items: start; }
+  .case-meta { display: flex; flex-direction: column; gap: 0.5rem; }
+  .case-industry { font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); }
+  .case-client { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--navy); }
+  .case-type { font-size: 0.82rem; color: var(--muted); }
+  .case-challenge { font-size: 0.92rem; color: var(--muted); margin-bottom: 0.75rem; }
+  .case-result { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+  .result-stat { text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1.25rem; }
+  .result-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--navy); display: block; }
+  .result-label { font-size: 0.75rem; color: var(--muted); }
+  .case-approach { font-size: 0.88rem; color: var(--text); line-height: 1.65; }
+
+  /* SOCIAL PROOF */
+  #proof { background: var(--navy); }
+  #proof .section-title { color: #fff; }
+  #proof .section-sub { color: rgba(255,255,255,0.5); }
+  #proof .section-label { color: var(--gold2); }
+  .logos-grid { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; margin-bottom: 3rem; }
+  .logo-pill { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; padding: 0.65rem 1.5rem; font-size: 0.95rem; font-weight: 500; color: rgba(255,255,255,0.7); letter-spacing: 0.03em; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+  .testimonial { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 2rem; }
+  .testimonial-quote { font-size: 1.3rem; color: var(--gold); margin-bottom: 0.75rem; }
+  .testimonial-text { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin-bottom: 1.25rem; font-style: italic; }
+  .testimonial-author { font-size: 0.88rem; font-weight: 500; color: rgba(255,255,255,0.9); }
+  .testimonial-role { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+  /* ABOUT */
+  #about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--muted); font-size: 0.96rem; line-height: 1.75; margin-bottom: 1rem; }
+  .certs-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .cert-item { display: flex; align-items: center; gap: 0.75rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; }
+  .cert-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+  .cert-name { font-size: 0.88rem; font-weight: 500; color: var(--navy); }
+
+  /* PROCESS */
+  #process { background: var(--white); }
+  .process-steps { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .process-steps::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 2px; background: linear-gradient(to right, var(--gold), var(--navy)); opacity: 0.2; }
+  .step { text-align: center; padding: 0 1rem; position: relative; }
+  .step-num { width: 56px; height: 56px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: 'Playfair Display', serif; font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; border: 3px solid var(--cream); }
+  .step-title { font-weight: 500; font-size: 0.92rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  /* CONTACT */
+  #contact { background: var(--navy); }
+  #contact .section-title { color: #fff; }
+  #contact .section-sub { color: rgba(255,255,255,0.55); }
+  #contact .section-label { color: var(--gold2); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+  .form-group input, .form-group textarea { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 0.7rem 1rem; color: rgba(255,255,255,0.9); font-family: 'DM Sans', sans-serif; font-size: 0.92rem; outline: none; transition: border-color 0.2s; width: 100%; }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-icon { width: 42px; height: 42px; border-radius: 8px; background: rgba(201,146,58,0.15); border: 1px solid rgba(201,146,58,0.25); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .contact-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--gold); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .contact-label { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-bottom: 0.2rem; }
+  .contact-val { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+  .contact-val a { color: var(--gold2); text-decoration: none; }
+  .contact-val a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { background: #06111f; padding: 1.5rem 2rem; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+
+  /* ADMIN PANEL */
+  .admin-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 200; }
+  .admin-overlay.open { display: flex; align-items: flex-start; justify-content: flex-end; }
+  .admin-panel { background: #fff; width: 500px; height: 100vh; overflow-y: auto; box-shadow: -8px 0 32px rgba(0,0,0,0.2); display: flex; flex-direction: column; }
+  .admin-header { background: var(--navy); padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+  .admin-title { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; }
+  .admin-close { background: none; border: none; color: rgba(255,255,255,0.5); cursor: pointer; font-size: 1.5rem; line-height: 1; padding: 0; }
+  .admin-close:hover { color: #fff; }
+  .admin-tabs { display: flex; border-bottom: 1px solid #e5e5e5; overflow-x: auto; flex-shrink: 0; }
+  .admin-tab { flex-shrink: 0; padding: 0.85rem 1rem; font-size: 0.82rem; font-weight: 500; text-align: center; cursor: pointer; color: #888; border-bottom: 2px solid transparent; transition: all 0.2s; font-family: 'DM Sans', sans-serif; background: none; border-top: none; border-left: none; border-right: none; }
+  .admin-tab.active { color: var(--navy); border-bottom-color: var(--gold); }
+  .admin-body { flex: 1; padding: 1.5rem; overflow-y: auto; }
+  .admin-section { display: none; }
+  .admin-section.active { display: block; }
+  .admin-field { margin-bottom: 1.25rem; }
+  .admin-field label { display: block; font-size: 0.8rem; font-weight: 500; color: #555; margin-bottom: 0.35rem; }
+  .admin-field input, .admin-field textarea { width: 100%; padding: 0.6rem 0.85rem; border: 1px solid #ddd; border-radius: 6px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; color: #222; outline: none; transition: border-color 0.2s; }
+  .admin-field input:focus, .admin-field textarea:focus { border-color: var(--gold); }
+  .admin-field textarea { resize: vertical; min-height: 80px; }
+  .admin-group { background: #f8f7f4; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ede9e0; }
+  .admin-group-title { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: #888; margin-bottom: 0.75rem; }
+  .admin-save { width: 100%; background: var(--navy); color: #fff; border: none; border-radius: 6px; padding: 0.85rem; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: background 0.2s; margin-top: 1rem; }
+  .admin-save:hover { background: var(--gold); }
+  .admin-login { padding: 2rem 1.5rem; }
+  .login-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .login-sub { font-size: 0.88rem; color: #888; margin-bottom: 1.5rem; }
+  .login-err { font-size: 0.82rem; color: #c0392b; margin-top: 0.5rem; display: none; }
+  .hint-text { font-size: 0.78rem; color: #aaa; margin-top: 0.35rem; }
+  .photo-admin { display: flex; align-items: center; gap: 1rem; }
+  .photo-preview-box { width: 64px; height: 72px; border-radius: 6px; background: #e8e4dc; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 1rem; color: #bbb; font-weight: 600; overflow: hidden; flex-shrink: 0; }
+  .photo-preview-box img { width: 100%; height: 100%; object-fit: cover; }
+  .section-divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
+  .save-success { background: #f0faf5; border: 1px solid #a8dfc5; border-radius: 6px; color: #1a7a4a; font-size: 0.85rem; padding: 0.65rem 1rem; margin-top: 0.75rem; display: none; text-align: center; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .vp-grid { grid-template-columns: 1fr 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+  }
+  @media (max-width: 780px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .photo-frame { width: 200px; height: 220px; margin: 0 auto; }
+    .hero-name { font-size: 2.4rem; }
+    .vp-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .case-card { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .admin-panel { width: 100%; }
+    nav { padding: 0 1rem; }
+    .nav-links a:not(.nav-cta):not(.admin-btn) { display: none; }
+    section { padding: 3.5rem 0; }
+  }
+  @media (max-width: 480px) {
+    .hero-name { font-size: 2rem; }
+    .section-title { font-size: 1.75rem; }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-inner { padding: 0 1.25rem; }
+    .container { padding: 0 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <span class="nav-logo" id="nav-name">Vivek M.</span>
+  <div class="nav-links">
+    <a href="#value">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta" id="nav-cta-text">Book a Call</a>
+    <button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag" id="hero-tag">Multi-Cloud Solution Architect</span>
+      <h1 class="hero-name" id="hero-name">Vivek M.</h1>
+      <p class="hero-title" id="hero-title">Azure Solutions Architect Expert · TOGAF® Certified · AWS</p>
+      <p class="hero-line" id="hero-line">I help enterprise organisations <em>design, adopt, and scale</em> cloud architectures that are secure, future-proof, and aligned to business strategy.</p>
+      <div>
+        <a href="#contact" class="btn-primary" id="hero-cta">Book a Call</a>
+        <a href="#work" class="btn-ghost">View My Work</a>
+      </div>
+      <div class="hero-certs">
+        <span class="cert-badge">TOGAF® 9 Certified</span>
+        <span class="cert-badge">Azure Solutions Architect Expert</span>
+        <span class="cert-badge">IBM MQSeries Certified</span>
+        <span class="cert-badge">20+ Years Experience</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame" id="photo-frame">
+        <img id="hero-img" src="" alt="Vivek M.">
+        <div class="photo-placeholder" id="photo-placeholder">
+          <div class="photo-initials">VM</div>
+          <p class="photo-hint">Professional photo<br>coming soon</p>
+          <label class="photo-upload-label" for="photo-upload-hero">Upload Photo</label>
+          <input type="file" id="photo-upload-hero" accept="image/*" style="display:none" onchange="handlePhotoUpload(this)">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VALUE PROP ===================== -->
+<section id="value">
+  <div class="container">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title" id="vp-title">Bridging Architecture Excellence<br>with Business Strategy</h2>
+    <p class="section-sub" id="vp-sub">Specialising in multi-cloud strategy and digital transformation for enterprise organisations across government, retail, financial services, and more.</p>
+    <div class="vp-grid">
+      <div class="vp-card">
+        <div class="vp-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <p class="vp-title" id="vp1-title">Cloud Strategy & Adoption</p>
+        <p class="vp-text" id="vp1-text">Designing enterprise cloud roadmaps that align technology investments with long-term business objectives across Azure, AWS, and Oracle Cloud.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p class="vp-title" id="vp2-title">Security-Driven Architecture</p>
+        <p class="vp-text" id="vp2-text">Embedding security, compliance, and governance into every layer of the architecture — from cloud foundations to DevSecOps pipelines.</p>
+      </div>
+      <div class="vp-card">
+        <div class="vp-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <p class="vp-title" id="vp3-title">Integration & Microservices</p>
+        <p class="vp-text" id="vp3-text">Modernising legacy integration platforms into API-first, event-driven microservices architectures that scale with organisational growth.</p>
+      </div>
+    </div>
+    <div>
+      <p class="section-label" style="margin-top:3rem">Industries</p>
+      <div class="industries">
+        <span class="industry-tag">Federal Government</span>
+        <span class="industry-tag">Retail</span>
+        <span class="industry-tag">Banking & Finance</span>
+        <span class="industry-tag">Airlines</span>
+        <span class="industry-tag">Hospitality</span>
+        <span class="industry-tag">Manufacturing</span>
+        <span class="industry-tag">Public Sector</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services">
+  <div class="container">
+    <p class="section-label">Services</p>
+    <h2 class="section-title">How I Can Help</h2>
+    <p class="section-sub">Engagements are tailored to your organisation's maturity, goals, and constraints.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-num">01</div>
+        <p class="svc-title" id="svc1-title">Cloud Architecture Review</p>
+        <p class="svc-desc" id="svc1-desc">A structured assessment of your current cloud environment, identifying risks, technical debt, and opportunities to optimise cost, security, and scalability.</p>
+        <p class="svc-outcome" id="svc1-outcome">Outcome: Clear remediation roadmap with prioritised recommendations</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">02</div>
+        <p class="svc-title" id="svc2-title">Multi-Cloud Strategy & Design</p>
+        <p class="svc-desc" id="svc2-desc">End-to-end cloud strategy, reference architecture, and standards documentation across Azure, AWS, and OCI — aligned to TOGAF® and enterprise governance frameworks.</p>
+        <p class="svc-outcome" id="svc2-outcome">Outcome: Approved target-state architecture and implementation roadmap</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">03</div>
+        <p class="svc-title" id="svc3-title">Digital Transformation Advisory</p>
+        <p class="svc-desc" id="svc3-desc">Strategic guidance on modernising legacy systems, adopting DevSecOps, and building cloud-native capabilities that deliver sustained competitive advantage.</p>
+        <p class="svc-outcome" id="svc3-outcome">Outcome: Board-ready transformation strategy and delivery plan</p>
+      </div>
+      <div class="service-card">
+        <div class="svc-num">04</div>
+        <p class="svc-title" id="svc4-title">Integration & API Architecture</p>
+        <p class="svc-desc" id="svc4-desc">Designing scalable API-first and event-driven architectures — from microservices decomposition to B2C authentication, BFF patterns, and active-active deployments.</p>
+        <p class="svc-outcome" id="svc4-outcome">Outcome: Production-ready integration architecture and design patterns</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CASE STUDIES ===================== -->
+<section id="work">
+  <div class="container">
+    <p class="section-label">Case Studies</p>
+    <h2 class="section-title">Selected Work</h2>
+    <p class="section-sub">Real engagements, real results. Details anonymised where required.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-industry" id="case1-industry">Federal Government</span>
+          <span class="case-client" id="case1-client">Case Study Title</span>
+          <span class="case-type" id="case1-type">Cloud Architecture · Security</span>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge" id="case1-challenge">Describe the client's challenge here. What problem were they facing? What was at stake? Use 2–3 sentences to set context.</p>
+          <p class="case-approach" id="case1-approach"><strong>Approach:</strong> Describe your methodology, tools, and frameworks used. What made your approach unique?</p>
+          <div class="case-result">
+            <div class="result-stat"><span class="result-num" id="case1-stat1">—</span><span class="result-label" id="case1-label1">Metric 1</span></div>
+            <div class="result-stat"><span class="result-num" id="case1-stat2">—</span><span class="result-label" id="case1-label2">Metric 2</span></div>
+            <div class="result-stat"><span class="result-num" id="case1-stat3">—</span><span class="result-label" id="case1-label3">Metric 3</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-industry" id="case2-industry">Retail</span>
+          <span class="case-client" id="case2-client">Case Study Title</span>
+          <span class="case-type" id="case2-type">Integration · Azure · Supply Chain</span>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge" id="case2-challenge">Describe the client's challenge here. What problem were they facing? What was at stake?</p>
+          <p class="case-approach" id="case2-approach"><strong>Approach:</strong> Describe your methodology, tools, and frameworks used.</p>
+          <div class="case-result">
+            <div class="result-stat"><span class="result-num" id="case2-stat1">—</span><span class="result-label" id="case2-label1">Metric 1</span></div>
+            <div class="result-stat"><span class="result-num" id="case2-stat2">—</span><span class="result-label" id="case2-label2">Metric 2</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-industry" id="case3-industry">Financial Services</span>
+          <span class="case-client" id="case3-client">Case Study Title</span>
+          <span class="case-type" id="case3-type">Digital Identity · Cloud Migration</span>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge" id="case3-challenge">Describe the client's challenge here. What problem were they facing? What was at stake?</p>
+          <p class="case-approach" id="case3-approach"><strong>Approach:</strong> Describe your methodology, tools, and frameworks used.</p>
+          <div class="case-result">
+            <div class="result-stat"><span class="result-num" id="case3-stat1">—</span><span class="result-label" id="case3-label1">Metric 1</span></div>
+            <div class="result-stat"><span class="result-num" id="case3-stat2">—</span><span class="result-label" id="case3-label2">Metric 2</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOCIAL PROOF ===================== -->
+<section id="proof">
+  <div class="container">
+    <p class="section-label">Social Proof</p>
+    <h2 class="section-title">Organisations I've Worked With</h2>
+    <div class="logos-grid">
+      <div class="logo-pill">Australian Federal Government</div>
+      <div class="logo-pill">Services Australia</div>
+      <div class="logo-pill">Coles Group</div>
+      <div class="logo-pill">Coles Myer Ltd</div>
+      <div class="logo-pill">Fujitsu Asia</div>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text" id="t1-text">Add your first testimonial here. Ask a past client or colleague for a short quote about the impact of your work or your approach to architecture.</p>
+        <p class="testimonial-author" id="t1-author">Client Name</p>
+        <p class="testimonial-role" id="t1-role">Title, Organisation</p>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-quote">"</div>
+        <p class="testimonial-text" id="t2-text">Add your second testimonial here. Focus on outcomes achieved, your collaborative style, or your ability to communicate complex architecture clearly.</p>
+        <p class="testimonial-author" id="t2-author">Client Name</p>
+        <p class="testimonial-role" id="t2-role">Title, Organisation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title">The Architect Behind the Strategy</h2>
+        <p id="about-p1">With over 20 years of experience spanning Singapore, Asia-Pacific, and Australia, I've built my career at the intersection of enterprise architecture and digital transformation.</p>
+        <p id="about-p2">What drives me is the challenge of translating complex technology into clear, actionable strategy — helping organisations move faster, more securely, and with greater confidence in their cloud future.</p>
+        <p id="about-p3">I've led architecture initiatives across retail, government, financial services, and logistics — always with a focus on long-term resilience, not just short-term delivery.</p>
+      </div>
+      <div>
+        <p class="section-label" style="margin-bottom:1rem">Credentials</p>
+        <div class="certs-list">
+          <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Microsoft Certified: Azure Solutions Architect Expert (×2)</span></div>
+          <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">TOGAF® 9 Certified & Foundation</span></div>
+          <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">IBM Certified Specialist MQSeries</span></div>
+          <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">20+ Years Enterprise Architecture</span></div>
+          <div class="cert-item"><div class="cert-dot"></div><span class="cert-name">Australian Federal Government — Cleared</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process">
+  <div class="container">
+    <p class="section-label">How I Work</p>
+    <h2 class="section-title" style="margin-bottom:3rem">A Clear Engagement Process</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <p class="step-title">Discovery</p>
+        <p class="step-desc">Understanding your current state, business goals, constraints, and cloud maturity</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <p class="step-title">Assessment</p>
+        <p class="step-desc">Architecture review, gap analysis, and risk identification across your technology landscape</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <p class="step-title">Design</p>
+        <p class="step-desc">Target-state architecture, reference models, and standards tailored to your context</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <p class="step-title">Roadmap</p>
+        <p class="step-desc">Prioritised, phased delivery plan with clear milestones and governance checkpoints</p>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <p class="step-title">Assurance</p>
+        <p class="step-desc">Architecture governance, review, and continuous guidance through implementation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-title">Let's Talk About Your Cloud Strategy</h2>
+        <p class="section-sub" style="margin-bottom:2rem">Whether you're starting a transformation, scaling an existing platform, or need an independent architecture review — I'd love to hear about your challenge.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">Email</p>
+              <p class="contact-val"><a href="mailto:your@email.com" id="contact-email">your@email.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">LinkedIn</p>
+              <p class="contact-val"><a href="https://www.linkedin.com/in/vivekmeshram" target="_blank" rel="noopener" id="contact-linkedin">linkedin.com/in/vivekmeshram</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <p class="contact-label">Book a Call</p>
+              <p class="contact-val"><a href="#" id="contact-calendly">Schedule via Calendly</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="contact-form">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>Organisation</label>
+            <input type="text" placeholder="Company name">
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell me about your challenge or project..."></textarea>
+          </div>
+          <button class="btn-primary" style="border:none;cursor:pointer;width:100%;text-align:center" onclick="this.textContent='Message Sent ✓';this.style.background='#2e7d52'">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <p id="footer-text">© 2025 Vivek M. · Cloud Solution Architect · Melbourne, Australia</p>
+</footer>
+
+<!-- ===================== ADMIN PANEL ===================== -->
+<div class="admin-overlay" id="admin-overlay">
+  <div class="admin-panel" onclick="event.stopPropagation()">
+    <div class="admin-header">
+      <span class="admin-title">Portfolio Admin</span>
+      <button class="admin-close" onclick="closeAdmin()">×</button>
+    </div>
+
+    <!-- LOGIN VIEW -->
+    <div id="admin-login-view" class="admin-login">
+      <p class="login-title">Admin Login</p>
+      <p class="login-sub">Enter your admin password to edit portfolio content.</p>
+      <div class="admin-field">
+        <label>Password</label>
+        <input type="password" id="admin-pw-input" placeholder="Enter password" onkeydown="if(event.key==='Enter')checkLogin()">
+        <p class="hint-text">Default password: <strong>admin123</strong> — change it in Settings after login.</p>
+        <p class="login-err" id="login-err">Incorrect password. Please try again.</p>
+      </div>
+      <button class="admin-save" onclick="checkLogin()">Login</button>
+    </div>
+
+    <!-- EDITOR VIEW -->
+    <div id="admin-editor-view" style="display:none;flex-direction:column;flex:1">
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="switchTab('hero')">Hero</button>
+        <button class="admin-tab" onclick="switchTab('services')">Services</button>
+        <button class="admin-tab" onclick="switchTab('cases')">Cases</button>
+        <button class="admin-tab" onclick="switchTab('social')">Social</button>
+        <button class="admin-tab" onclick="switchTab('contact')">Contact</button>
+        <button class="admin-tab" onclick="switchTab('settings')">Settings</button>
+      </div>
+      <div class="admin-body">
+
+        <!-- HERO TAB -->
+        <div class="admin-section active" id="tab-hero">
+          <div class="admin-group">
+            <p class="admin-group-title">Profile Photo</p>
+            <div class="photo-admin">
+              <div class="photo-preview-box" id="admin-photo-preview">VM</div>
+              <div style="flex:1">
+                <div class="admin-field" style="margin-bottom:0.5rem">
+                  <label>Photo URL</label>
+                  <input type="url" id="a-photo-url" placeholder="https://example.com/photo.jpg" oninput="previewPhotoUrl(this.value)">
+                </div>
+                <p class="hint-text">Paste a direct image link, or use the upload button in the hero section on the page.</p>
+              </div>
+            </div>
+          </div>
+          <div class="admin-field"><label>Full Name</label><input id="a-name" value="Vivek M."></div>
+          <div class="admin-field"><label>Role Tag (above name)</label><input id="a-tag" value="Multi-Cloud Solution Architect"></div>
+          <div class="admin-field"><label>Sub-title (below name)</label><input id="a-subtitle" value="Azure Solutions Architect Expert · TOGAF® Certified · AWS"></div>
+          <div class="admin-field"><label>Hero One-Liner</label><textarea id="a-oneliner">I help enterprise organisations design, adopt, and scale cloud architectures that are secure, future-proof, and aligned to business strategy.</textarea></div>
+          <div class="admin-field"><label>Primary CTA Button Text</label><input id="a-cta" value="Book a Call"></div>
+          <div class="admin-field"><label>Calendly / Booking URL</label><input id="a-cta-link" placeholder="https://calendly.com/your-link"></div>
+          <hr class="section-divider">
+          <div class="admin-group">
+            <p class="admin-group-title">Value Proposition Section</p>
+            <div class="admin-field"><label>Section Title</label><input id="a-vp-title" value="Bridging Architecture Excellence with Business Strategy"></div>
+            <div class="admin-field"><label>Section Sub-text</label><textarea id="a-vp-sub">Specialising in multi-cloud strategy and digital transformation for enterprise organisations across government, retail, financial services, and more.</textarea></div>
+            <div class="admin-field"><label>Card 1 — Title</label><input id="a-vp1-title" value="Cloud Strategy & Adoption"></div>
+            <div class="admin-field"><label>Card 1 — Text</label><textarea id="a-vp1-text">Designing enterprise cloud roadmaps that align technology investments with long-term business objectives across Azure, AWS, and Oracle Cloud.</textarea></div>
+            <div class="admin-field"><label>Card 2 — Title</label><input id="a-vp2-title" value="Security-Driven Architecture"></div>
+            <div class="admin-field"><label>Card 2 — Text</label><textarea id="a-vp2-text">Embedding security, compliance, and governance into every layer of the architecture — from cloud foundations to DevSecOps pipelines.</textarea></div>
+            <div class="admin-field"><label>Card 3 — Title</label><input id="a-vp3-title" value="Integration & Microservices"></div>
+            <div class="admin-field"><label>Card 3 — Text</label><textarea id="a-vp3-text">Modernising legacy integration platforms into API-first, event-driven microservices architectures that scale with organisational growth.</textarea></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">About Paragraphs</p>
+            <div class="admin-field"><label>Paragraph 1</label><textarea id="a-about1">With over 20 years of experience spanning Singapore, Asia-Pacific, and Australia, I've built my career at the intersection of enterprise architecture and digital transformation.</textarea></div>
+            <div class="admin-field"><label>Paragraph 2</label><textarea id="a-about2">What drives me is the challenge of translating complex technology into clear, actionable strategy — helping organisations move faster, more securely, and with greater confidence in their cloud future.</textarea></div>
+            <div class="admin-field"><label>Paragraph 3</label><textarea id="a-about3">I've led architecture initiatives across retail, government, financial services, and logistics — always with a focus on long-term resilience, not just short-term delivery.</textarea></div>
+          </div>
+          <button class="admin-save" onclick="applyAll('tab-hero')">Save Changes</button>
+          <div class="save-success" id="save-hero">Changes saved successfully!</div>
+        </div>
+
+        <!-- SERVICES TAB -->
+        <div class="admin-section" id="tab-services">
+          <div class="admin-group">
+            <p class="admin-group-title">Service 1</p>
+            <div class="admin-field"><label>Title</label><input id="a-svc1-title" value="Cloud Architecture Review"></div>
+            <div class="admin-field"><label>Description</label><textarea id="a-svc1-desc">A structured assessment of your current cloud environment, identifying risks, technical debt, and opportunities to optimise cost, security, and scalability.</textarea></div>
+            <div class="admin-field"><label>Outcome Line</label><input id="a-svc1-outcome" value="Outcome: Clear remediation roadmap with prioritised recommendations"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Service 2</p>
+            <div class="admin-field"><label>Title</label><input id="a-svc2-title" value="Multi-Cloud Strategy & Design"></div>
+            <div class="admin-field"><label>Description</label><textarea id="a-svc2-desc">End-to-end cloud strategy, reference architecture, and standards documentation across Azure, AWS, and OCI — aligned to TOGAF® and enterprise governance frameworks.</textarea></div>
+            <div class="admin-field"><label>Outcome Line</label><input id="a-svc2-outcome" value="Outcome: Approved target-state architecture and implementation roadmap"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Service 3</p>
+            <div class="admin-field"><label>Title</label><input id="a-svc3-title" value="Digital Transformation Advisory"></div>
+            <div class="admin-field"><label>Description</label><textarea id="a-svc3-desc">Strategic guidance on modernising legacy systems, adopting DevSecOps, and building cloud-native capabilities that deliver sustained competitive advantage.</textarea></div>
+            <div class="admin-field"><label>Outcome Line</label><input id="a-svc3-outcome" value="Outcome: Board-ready transformation strategy and delivery plan"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Service 4</p>
+            <div class="admin-field"><label>Title</label><input id="a-svc4-title" value="Integration & API Architecture"></div>
+            <div class="admin-field"><label>Description</label><textarea id="a-svc4-desc">Designing scalable API-first and event-driven architectures — from microservices decomposition to B2C authentication, BFF patterns, and active-active deployments.</textarea></div>
+            <div class="admin-field"><label>Outcome Line</label><input id="a-svc4-outcome" value="Outcome: Production-ready integration architecture and design patterns"></div>
+          </div>
+          <button class="admin-save" onclick="applyAll('tab-services')">Save Changes</button>
+          <div class="save-success" id="save-services">Changes saved successfully!</div>
+        </div>
+
+        <!-- CASES TAB -->
+        <div class="admin-section" id="tab-cases">
+          <div class="admin-group">
+            <p class="admin-group-title">Case Study 1</p>
+            <div class="admin-field"><label>Industry Tag</label><input id="a-c1-industry" value="Federal Government"></div>
+            <div class="admin-field"><label>Project / Client Title</label><input id="a-c1-client" value="Case Study Title"></div>
+            <div class="admin-field"><label>Type / Tags</label><input id="a-c1-type" value="Cloud Architecture · Security"></div>
+            <div class="admin-field"><label>Challenge</label><textarea id="a-c1-challenge">Describe the client's challenge here.</textarea></div>
+            <div class="admin-field"><label>Approach</label><textarea id="a-c1-approach">Describe your methodology and approach.</textarea></div>
+            <div class="admin-field"><label>Result Stat 1 — Number (e.g. 40%)</label><input id="a-c1-s1" value="—"></div>
+            <div class="admin-field"><label>Result Stat 1 — Label (e.g. Cost Reduction)</label><input id="a-c1-l1" value="Metric 1"></div>
+            <div class="admin-field"><label>Result Stat 2 — Number</label><input id="a-c1-s2" value="—"></div>
+            <div class="admin-field"><label>Result Stat 2 — Label</label><input id="a-c1-l2" value="Metric 2"></div>
+            <div class="admin-field"><label>Result Stat 3 — Number</label><input id="a-c1-s3" value="—"></div>
+            <div class="admin-field"><label>Result Stat 3 — Label</label><input id="a-c1-l3" value="Metric 3"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Case Study 2</p>
+            <div class="admin-field"><label>Industry Tag</label><input id="a-c2-industry" value="Retail"></div>
+            <div class="admin-field"><label>Project / Client Title</label><input id="a-c2-client" value="Case Study Title"></div>
+            <div class="admin-field"><label>Type / Tags</label><input id="a-c2-type" value="Integration · Azure · Supply Chain"></div>
+            <div class="admin-field"><label>Challenge</label><textarea id="a-c2-challenge">Describe the client's challenge here.</textarea></div>
+            <div class="admin-field"><label>Approach</label><textarea id="a-c2-approach">Describe your methodology and approach.</textarea></div>
+            <div class="admin-field"><label>Result Stat 1 — Number</label><input id="a-c2-s1" value="—"></div>
+            <div class="admin-field"><label>Result Stat 1 — Label</label><input id="a-c2-l1" value="Metric 1"></div>
+            <div class="admin-field"><label>Result Stat 2 — Number</label><input id="a-c2-s2" value="—"></div>
+            <div class="admin-field"><label>Result Stat 2 — Label</label><input id="a-c2-l2" value="Metric 2"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Case Study 3</p>
+            <div class="admin-field"><label>Industry Tag</label><input id="a-c3-industry" value="Financial Services"></div>
+            <div class="admin-field"><label>Project / Client Title</label><input id="a-c3-client" value="Case Study Title"></div>
+            <div class="admin-field"><label>Type / Tags</label><input id="a-c3-type" value="Digital Identity · Cloud Migration"></div>
+            <div class="admin-field"><label>Challenge</label><textarea id="a-c3-challenge">Describe the client's challenge here.</textarea></div>
+            <div class="admin-field"><label>Approach</label><textarea id="a-c3-approach">Describe your methodology and approach.</textarea></div>
+            <div class="admin-field"><label>Result Stat 1 — Number</label><input id="a-c3-s1" value="—"></div>
+            <div class="admin-field"><label>Result Stat 1 — Label</label><input id="a-c3-l1" value="Metric 1"></div>
+            <div class="admin-field"><label>Result Stat 2 — Number</label><input id="a-c3-s2" value="—"></div>
+            <div class="admin-field"><label>Result Stat 2 — Label</label><input id="a-c3-l2" value="Metric 2"></div>
+          </div>
+          <button class="admin-save" onclick="applyAll('tab-cases')">Save Changes</button>
+          <div class="save-success" id="save-cases">Changes saved successfully!</div>
+        </div>
+
+        <!-- SOCIAL TAB -->
+        <div class="admin-section" id="tab-social">
+          <div class="admin-group">
+            <p class="admin-group-title">Testimonial 1</p>
+            <div class="admin-field"><label>Quote Text</label><textarea id="a-t1-text">Add your first testimonial here.</textarea></div>
+            <div class="admin-field"><label>Author Name</label><input id="a-t1-author" value="Client Name"></div>
+            <div class="admin-field"><label>Author Title & Org</label><input id="a-t1-role" value="Title, Organisation"></div>
+          </div>
+          <div class="admin-group">
+            <p class="admin-group-title">Testimonial 2</p>
+            <div class="admin-field"><label>Quote Text</label><textarea id="a-t2-text">Add your second testimonial here.</textarea></div>
+            <div class="admin-field"><label>Author Name</label><input id="a-t2-author" value="Client Name"></div>
+            <div class="admin-field"><label>Author Title & Org</label><input id="a-t2-role" value="Title, Organisation"></div>
+          </div>
+          <button class="admin-save" onclick="applyAll('tab-social')">Save Changes</button>
+          <div class="save-success" id="save-social">Changes saved successfully!</div>
+        </div>
+
+        <!-- CONTACT TAB -->
+        <div class="admin-section" id="tab-contact">
+          <div class="admin-field"><label>Email Address</label><input id="a-email" value="your@email.com"></div>
+          <div class="admin-field"><label>LinkedIn Profile URL</label><input id="a-linkedin" value="https://www.linkedin.com/in/vivekmeshram"></div>
+          <div class="admin-field"><label>Calendly / Booking URL</label><input id="a-calendly" placeholder="https://calendly.com/your-link"></div>
+          <div class="admin-field"><label>Footer Text</label><input id="a-footer" value="© 2025 Vivek M. · Cloud Solution Architect · Melbourne, Australia"></div>
+          <button class="admin-save" onclick="applyAll('tab-contact')">Save Changes</button>
+          <div class="save-success" id="save-contact">Changes saved successfully!</div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="admin-section" id="tab-settings">
+          <div class="admin-group">
+            <p class="admin-group-title">Change Admin Password</p>
+            <div class="admin-field"><label>Current Password</label><input type="password" id="a-pw-current" placeholder="Enter current password"></div>
+            <div class="admin-field"><label>New Password</label><input type="password" id="a-pw-new" placeholder="Min. 6 characters"></div>
+            <div class="admin-field"><label>Confirm New Password</label><input type="password" id="a-pw-confirm" placeholder="Repeat new password"></div>
+            <p id="pw-msg" style="font-size:0.82rem;margin-top:0.35rem;display:none;padding:0.5rem 0.75rem;border-radius:4px"></p>
+            <button class="admin-save" onclick="changePassword()">Update Password</button>
+          </div>
+          <div class="admin-group" style="margin-top:1.5rem">
+            <p class="admin-group-title">Session</p>
+            <p style="font-size:0.82rem;color:#888;margin-bottom:0.75rem">You are currently logged in as admin.</p>
+            <button class="admin-save" style="background:#8b2020" onclick="logout()">Logout</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let adminPassword = 'admin123';
+let loggedIn = false;
+
+// Admin open/close
+function openAdmin() {
+  document.getElementById('admin-overlay').style.display = 'flex';
+  if (loggedIn) showEditor(); else showLogin();
+}
+function closeAdmin() {
+  document.getElementById('admin-overlay').style.display = 'none';
+}
+document.getElementById('admin-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeAdmin();
+});
+
+function showLogin() {
+  document.getElementById('admin-login-view').style.display = 'block';
+  document.getElementById('admin-editor-view').style.display = 'none';
+  document.getElementById('login-err').style.display = 'none';
+  document.getElementById('admin-pw-input').value = '';
+}
+function showEditor() {
+  document.getElementById('admin-login-view').style.display = 'none';
+  document.getElementById('admin-editor-view').style.display = 'flex';
+}
+function checkLogin() {
+  const pw = document.getElementById('admin-pw-input').value;
+  if (pw === adminPassword) { loggedIn = true; showEditor(); }
+  else { document.getElementById('login-err').style.display = 'block'; }
+}
+function logout() { loggedIn = false; closeAdmin(); }
+
+function switchTab(name) {
+  document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+  const tabs = ['hero','services','cases','social','contact','settings'];
+  const idx = tabs.indexOf(name);
+  document.querySelectorAll('.admin-tab')[idx].classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function g(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function set(id, val) { const el = document.getElementById(id); if (el && val !== undefined) el.textContent = val; }
+function setLink(id, href, text) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (href) el.href = href;
+  if (text) el.textContent = text;
+}
+
+function applyAll(tab) {
+  // HERO
+  set('hero-name', g('a-name')); set('nav-name', g('a-name'));
+  set('hero-tag', g('a-tag')); set('hero-title', g('a-subtitle'));
+  if (g('a-oneliner')) {
+    const txt = g('a-oneliner').replace(/(design, adopt, and scale)/gi, '<em>$1</em>');
+    document.getElementById('hero-line').innerHTML = txt;
+  }
+  const ctaTxt = g('a-cta') || 'Book a Call';
+  set('hero-cta', ctaTxt); set('nav-cta-text', ctaTxt);
+  const ctaLink = g('a-cta-link');
+  if (ctaLink) { document.getElementById('hero-cta').href = ctaLink; document.getElementById('nav-cta-text').href = ctaLink; }
+  // VALUE
+  set('vp-title', g('a-vp-title')); set('vp-sub', g('a-vp-sub'));
+  set('vp1-title', g('a-vp1-title')); set('vp1-text', g('a-vp1-text'));
+  set('vp2-title', g('a-vp2-title')); set('vp2-text', g('a-vp2-text'));
+  set('vp3-title', g('a-vp3-title')); set('vp3-text', g('a-vp3-text'));
+  // ABOUT
+  set('about-p1', g('a-about1')); set('about-p2', g('a-about2')); set('about-p3', g('a-about3'));
+  // SERVICES
+  set('svc1-title', g('a-svc1-title')); set('svc1-desc', g('a-svc1-desc')); set('svc1-outcome', g('a-svc1-outcome'));
+  set('svc2-title', g('a-svc2-title')); set('svc2-desc', g('a-svc2-desc')); set('svc2-outcome', g('a-svc2-outcome'));
+  set('svc3-title', g('a-svc3-title')); set('svc3-desc', g('a-svc3-desc')); set('svc3-outcome', g('a-svc3-outcome'));
+  set('svc4-title', g('a-svc4-title')); set('svc4-desc', g('a-svc4-desc')); set('svc4-outcome', g('a-svc4-outcome'));
+  // CASES
+  set('case1-industry', g('a-c1-industry')); set('case1-client', g('a-c1-client')); set('case1-type', g('a-c1-type'));
+  set('case1-challenge', g('a-c1-challenge'));
+  if (g('a-c1-approach')) document.getElementById('case1-approach').innerHTML = '<strong>Approach:</strong> ' + g('a-c1-approach');
+  set('case1-stat1', g('a-c1-s1')); set('case1-label1', g('a-c1-l1'));
+  set('case1-stat2', g('a-c1-s2')); set('case1-label2', g('a-c1-l2'));
+  set('case1-stat3', g('a-c1-s3')); set('case1-label3', g('a-c1-l3'));
+  set('case2-industry', g('a-c2-industry')); set('case2-client', g('a-c2-client')); set('case2-type', g('a-c2-type'));
+  set('case2-challenge', g('a-c2-challenge'));
+  if (g('a-c2-approach')) document.getElementById('case2-approach').innerHTML = '<strong>Approach:</strong> ' + g('a-c2-approach');
+  set('case2-stat1', g('a-c2-s1')); set('case2-label1', g('a-c2-l1'));
+  set('case2-stat2', g('a-c2-s2')); set('case2-label2', g('a-c2-l2'));
+  set('case3-industry', g('a-c3-industry')); set('case3-client', g('a-c3-client')); set('case3-type', g('a-c3-type'));
+  set('case3-challenge', g('a-c3-challenge'));
+  if (g('a-c3-approach')) document.getElementById('case3-approach').innerHTML = '<strong>Approach:</strong> ' + g('a-c3-approach');
+  set('case3-stat1', g('a-c3-s1')); set('case3-label1', g('a-c3-l1'));
+  set('case3-stat2', g('a-c3-s2')); set('case3-label2', g('a-c3-l2'));
+  // SOCIAL
+  set('t1-text', g('a-t1-text')); set('t1-author', g('a-t1-author')); set('t1-role', g('a-t1-role'));
+  set('t2-text', g('a-t2-text')); set('t2-author', g('a-t2-author')); set('t2-role', g('a-t2-role'));
+  // CONTACT
+  const email = g('a-email');
+  if (email) { document.getElementById('contact-email').textContent = email; document.getElementById('contact-email').href = 'mailto:' + email; }
+  const li = g('a-linkedin');
+  if (li) { document.getElementById('contact-linkedin').textContent = li.replace('https://',''); document.getElementById('contact-linkedin').href = li; }
+  const cal = g('a-calendly');
+  if (cal) { document.getElementById('contact-calendly').href = cal; if (ctaLink === '') { document.getElementById('hero-cta').href = cal; document.getElementById('nav-cta-text').href = cal; } }
+  set('footer-text', g('a-footer'));
+  // PHOTO
+  const photoUrl = g('a-photo-url');
+  if (photoUrl) setPhoto(photoUrl);
+  // Show success
+  const successEl = document.getElementById('save-' + tab.replace('tab-',''));
+  if (successEl) { successEl.style.display = 'block'; setTimeout(() => successEl.style.display = 'none', 2500); }
+}
+
+function changePassword() {
+  const cur = document.getElementById('a-pw-current').value;
+  const nw = document.getElementById('a-pw-new').value;
+  const cf = document.getElementById('a-pw-confirm').value;
+  const msg = document.getElementById('pw-msg');
+  msg.style.display = 'block';
+  if (cur !== adminPassword) { msg.style.background = '#fdf0f0'; msg.style.color = '#c0392b'; msg.textContent = 'Current password is incorrect.'; return; }
+  if (nw.length < 6) { msg.style.background = '#fdf0f0'; msg.style.color = '#c0392b'; msg.textContent = 'New password must be at least 6 characters.'; return; }
+  if (nw !== cf) { msg.style.background = '#fdf0f0'; msg.style.color = '#c0392b'; msg.textContent = 'New passwords do not match.'; return; }
+  adminPassword = nw;
+  msg.style.background = '#f0faf5'; msg.style.color = '#1a7a4a';
+  msg.textContent = 'Password updated successfully!';
+  document.getElementById('a-pw-current').value = '';
+  document.getElementById('a-pw-new').value = '';
+  document.getElementById('a-pw-confirm').value = '';
+  setTimeout(() => msg.style.display = 'none', 3000);
+}
+
+function setPhoto(url) {
+  const img = document.getElementById('hero-img');
+  const ph = document.getElementById('photo-placeholder');
+  img.onload = function() { img.style.display = 'block'; if (ph) ph.style.display = 'none'; };
+  img.onerror = function() { img.style.display = 'none'; if (ph) ph.style.display = 'flex'; };
+  img.src = url;
+  const prev = document.getElementById('admin-photo-preview');
+  if (prev) prev.innerHTML = '<img src="' + url + '" alt="preview">';
+}
+
+function previewPhotoUrl(url) {
+  if (!url) return;
+  const prev = document.getElementById('admin-photo-preview');
+  if (prev) prev.innerHTML = '<img src="' + url + '" alt="preview">';
+}
+
+function handlePhotoUpload(input) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = function(e) { setPhoto(e.target.result); };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// Keyboard shortcut: Escape to close admin
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAdmin(); });
+</script>
+</body>
+</html>
